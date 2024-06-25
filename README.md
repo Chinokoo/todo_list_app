@@ -18,7 +18,7 @@ To run this project locally, follow these steps:
 
 1. Make sure you have Flutter installed on your machine. If not, you can follow the official [Flutter installation guide](https://flutter.dev/docs/get-started/install).
 
-2. Clone this repository: git clone https://github.com/your-username/todo_list_app.git
+2. Clone this repository: git clone https://github.com/Chinoko/todo_list_app.git
 
 3. Navigate to the project directory:
 
