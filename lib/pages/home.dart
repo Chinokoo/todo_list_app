@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
+    // implement initState
     if (_box.get("TODOLIST") == null) {
       db.createInitialData();
     } else {
@@ -66,6 +66,30 @@ class _HomePageState extends State<HomePage> {
         });
   }
 
+  //update task
+  void updatetask(int index) {
+    bool isCompleted = false;
+    showDialog(
+        context: context,
+        builder: (context) {
+          return DialogBox(
+            controller: _controller,
+            onSave: () => saveUpdatedTask(index, isCompleted),
+            onCancel: cancelTask,
+          );
+        });
+  }
+
+  // update task when save button is clicked.
+  void saveUpdatedTask(int index, bool isCompleted) {
+    setState(() {
+      db.toDoList[index][0] = _controller.text; //update the task name.
+      db.toDoList[index][1] = isCompleted; //toggle the check box.
+    });
+    Navigator.of(context).pop();
+    db.updateDatabase();
+  }
+
   //delete task
   void deletetask(int index) {
     setState(() {
@@ -80,7 +104,7 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.yellow[300],
       appBar: AppBar(
         backgroundColor: Colors.yellow,
-        title: Center(child: Text("ToDo")),
+        title: const Center(child: Text("To Do List")),
         elevation: 0,
       ),
       floatingActionButton: FloatingActionButton(
@@ -97,6 +121,7 @@ class _HomePageState extends State<HomePage> {
               taskName: db.toDoList[index][0],
               onChanged: (value) => checkBoxChanged(value, index),
               deleteTask: (context) => deletetask(index),
+              updateTask: (context) => updatetask(index),
             );
           }),
     );

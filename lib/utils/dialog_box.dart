@@ -3,10 +3,10 @@ import 'package:todo_list_app/utils/my_button.dart';
 
 class DialogBox extends StatefulWidget {
   final controller;
-  VoidCallback onSave;
-  VoidCallback onCancel;
+  final VoidCallback onSave;
+  final VoidCallback onCancel;
 
-  DialogBox(
+  const DialogBox(
       {super.key,
       required this.controller,
       required this.onSave,
@@ -21,7 +21,7 @@ class _DialogBoxState extends State<DialogBox> {
   Widget build(BuildContext context) {
     return AlertDialog(
       title: const Center(
-        child: Text("ADD TASK"),
+        child: Text("Add or Update Task"),
       ),
       backgroundColor: Colors.yellow[300],
       content: Container(
@@ -32,10 +32,11 @@ class _DialogBoxState extends State<DialogBox> {
               // get user input
               TextField(
                 controller: widget.controller,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     border: OutlineInputBorder(), hintText: "Enter Task Name"),
               ),
-              //TODO -add two buttons here!
+
+              //add two buttons here!
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
