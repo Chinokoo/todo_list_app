@@ -2,13 +2,23 @@
 
 This is a simple Todo List application built with Flutter and Hive.
 
+<img src="lib/images/screenshots/home.png" alt="screenshot" width="400">
+
 ## features
 
 - Add new todo items
 
+  <img src="lib/images/screenshots/dialogbox.png" alt="screenshot" width="400">
+
 - Mark todos when completed
 
+- Update todos
+
+  <img src="lib/images/screenshots/delete and edit button.png" alt="screenshot" width="400">
+
 - Delete todo items
+
+  <img src="lib/images/screenshots/delete and edit button.png" alt="screenshot" width="400">
 
 - Persistent data storage using Hive.
 
